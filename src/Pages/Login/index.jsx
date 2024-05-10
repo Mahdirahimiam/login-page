@@ -1,10 +1,10 @@
 import { Image, Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, IconButton, InputAdornment, Stack, TextField, Typography, useMediaQuery } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useTheme } from '@emotion/react';
-
+import AuthContext from '../../utils/AuthContext';
 export default function Login() {
   const isMobile = useMediaQuery('(max-width:900px)')
   const theme = useTheme()
@@ -25,19 +25,27 @@ export default function Login() {
   const handlePassword = (e) => {
     setPassword(e.target.value)
   }
-
+  const { handleToken } = useContext(AuthContext)
   const handleSubmit = async () => {
-    console.log(username, password);
-    const response = await fetch('https://api.roohbakhshac.ir/api/app/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password
+    try {
+      const response = await fetch('https://api.roohbakhshac.ir/api/app/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      }).then((data) => {
+        if (data.ok) {
+          handleToken()
+        }
       })
-    }).then((data)=>{console.log(data);})
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   return (
@@ -102,14 +110,14 @@ export default function Login() {
                 ),
               }}
             />
-            <Stack direction={'row'}width={'100%'} alignItems={'center'} justifyContent={'end'}>
+            <Stack direction={'row'} width={'100%'} alignItems={'center'} justifyContent={'end'}>
               <Link to={'/password-recovery'} className='text'>Recovery Password</Link>
             </Stack>
             <Button
               sx={{ width: '300px', bgcolor: 'rgb(244, 93, 93)', '&:hover': { bgcolor: 'rgb(245, 69, 69)' } }}
-              onClick={()=>{username&&password&&handleSubmit()}}
+              onClick={() => { username && password && handleSubmit() }}
               variant='contained'
-              >
+            >
               Sign in
             </Button>
           </Stack>
