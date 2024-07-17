@@ -2,7 +2,7 @@
 
 A simple login page created with React.
 
-![Login Page Screenshot](./Screenshot 2024-07-17 164512.png)
+![Login Page Screenshot](./screenShot.png)
 
 ## Table of Contents
 
