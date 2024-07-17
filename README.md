@@ -1,8 +1,8 @@
 # Login Page
 
-A simple login page created with HTML, CSS, and JavaScript.
+A simple login page created with React.
 
-![Login Page Screenshot](./screenshot.png)
+![Login Page Screenshot](./Screenshot 2024-07-17 164512.png)
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ A simple login page created with HTML, CSS, and JavaScript.
 
 ## Description
 
-This project is a basic login page designed to demonstrate a simple user authentication interface. It includes fields for the user to input their username and password, and it features basic styling to make the form visually appealing.
+This project is a basic login page designed using React to demonstrate a simple user authentication interface. It includes fields for the user to input their username and password, and it features basic styling to make the form visually appealing.
 
 ## Features
 
@@ -39,15 +39,19 @@ To get a local copy up and running, follow these steps:
     cd login-page
     ```
 
-3. **Open `index.html` in your browser:**
-
-    You can open the `index.html` file directly in your web browser, or you can use a local server. For a simple setup using Python's built-in HTTP server, run:
+3. **Install dependencies:**
 
     ```bash
-    python -m http.server
+    npm install
     ```
 
-    Then open your browser and navigate to `http://localhost:8000`.
+4. **Start the development server:**
+
+    ```bash
+    npm start
+    ```
+
+    The application will automatically open in your default web browser. If it doesn't, you can manually navigate to `http://localhost:3000` in your browser.
 
 ## Usage
 
