@@ -66,7 +66,7 @@ export default function Login() {
       }}
     >
       <Stack
-        sx={{ width: '50%', height: '100%', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgb(255, 104, 255)', borderRadius: '20px', display: `${isMobile ? 'none' : 'block'}` }}
+        sx={{ width: '50%', height: '100%', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgb(255, 104, 255)', borderRadius: '20px',backgroundImage: `url('./img.JPG')`,backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center", display: `${isMobile ? 'none' : 'block'}` }}
       ></Stack>
       <Stack
         sx={{ width: `${isMobile ? '100%' : '50%'}`, height: '95%', alignItems: 'center', justifyContent: 'center', position: 'relative' }}
