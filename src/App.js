@@ -14,7 +14,7 @@ export default function App() {
     <AuthContext.Provider value={{token,handleToken}}>
        <div style={{minHeight:'80vh'}}>
        <Routes>
-          <Route exact path='/' element={!token?<Navigate to={'/login'}/>:<Home/>}/>
+          <Route exact path='/' element={token?<Home/>:<Navigate to={'/login'}/>}/>
           <Route path='/login' element={<Login/>}/>
         </Routes>
        </div>
